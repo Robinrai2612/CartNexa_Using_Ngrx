@@ -1,0 +1,13 @@
+<h4>Cart ({{ count$ }})</h4>
+<div *ngIf="!(count$ | async)">Cart is Empty!</div>
+
+<div *ngFor="let product of cart$ | async">
+  <div>
+    <h5>{{ product.title }}</h5>
+    <p>{{ product.price | currency }}</p>
+  </div>
+  <p>Qty : {{ product.quantity }}</p>
+  <button (click)="removeProducts(product)">Remove</button>
+</div>
+
+Total Amount : {{ price | currency }}
